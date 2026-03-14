@@ -16,6 +16,7 @@ body{
 background:#020617;
 overflow-x:hidden;
 font-family:sans-serif;
+scroll-behavior:smooth;
 }
 
 /* Canvas layers */
@@ -34,7 +35,7 @@ left:0;
 z-index:-1;
 }
 
-/* Steam-style cards */
+/* Steam style cards */
 
 .project-card img{
 transition:transform .5s;
@@ -85,7 +86,7 @@ View Projects
 
 </section>
 
-<!-- PROJECTS -->
+<!-- PROJECT GRID -->
 
 <section id="projects" class="max-w-6xl mx-auto py-24">
 
@@ -95,34 +96,29 @@ Featured Projects
 
 <div class="grid md:grid-cols-3 gap-10">
 
-<!-- PROJECT CARD -->
+<!-- CARD 1 -->
 
-<div class="project-card relative rounded-xl overflow-hidden shadow-xl">
+<a href="#project1" class="project-card relative rounded-xl overflow-hidden shadow-xl">
 
 <img src="images/project1.png" class="w-full h-64 object-cover">
 
 <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-center items-center text-center p-6">
 
 <h3 class="text-xl font-semibold mb-2">
-MasKeeper
+Black Hole Simulation
 </h3>
 
 <p class="text-gray-300 text-sm">
-Project made in 48 hours for GGJ2026
+Gravitational physics experiment
 </p>
 
-<a href="#"
-class="mt-4 bg-blue-400 text-black px-4 py-2 rounded hover:bg-blue-300">
-View Project
+</div>
+
 </a>
 
-</div>
+<!-- CARD 2 -->
 
-</div>
-
-<!-- PROJECT CARD -->
-
-<div class="project-card relative rounded-xl overflow-hidden shadow-xl">
+<a href="#project2" class="project-card relative rounded-xl overflow-hidden shadow-xl">
 
 <img src="images/project2.png" class="w-full h-64 object-cover">
 
@@ -133,21 +129,16 @@ Bird Gravity System
 </h3>
 
 <p class="text-gray-300 text-sm">
-Particle flock influenced by gravitational forces.
+Particle flock simulation
 </p>
 
-<a href="#"
-class="mt-4 bg-blue-400 text-black px-4 py-2 rounded hover:bg-blue-300">
-View Project
+</div>
+
 </a>
 
-</div>
+<!-- CARD 3 -->
 
-</div>
-
-<!-- PROJECT CARD -->
-
-<div class="project-card relative rounded-xl overflow-hidden shadow-xl">
+<a href="#project3" class="project-card relative rounded-xl overflow-hidden shadow-xl">
 
 <img src="images/project3.png" class="w-full h-64 object-cover">
 
@@ -158,51 +149,133 @@ Unity Platformer Prototype
 </h3>
 
 <p class="text-gray-300 text-sm">
-Gameplay mechanics and movement experiments.
+Gameplay mechanics prototype
 </p>
 
-<a href="#"
-class="mt-4 bg-blue-400 text-black px-4 py-2 rounded hover:bg-blue-300">
-View Project
+</div>
+
+</a>
+
+<!-- CARD 4 -->
+
+<a href="#project4" class="project-card relative rounded-xl overflow-hidden shadow-xl">
+
+<img src="images/project4.png" class="w-full h-64 object-cover">
+
+<div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-center items-center text-center p-6">
+
+<h3 class="text-xl font-semibold mb-2">
+Procedural Terrain
+</h3>
+
+<p class="text-gray-300 text-sm">
+Noise based terrain generation
+</p>
+
+</div>
+
+</a>
+
+<!-- CARD 5 -->
+
+<a href="#project5" class="project-card relative rounded-xl overflow-hidden shadow-xl">
+
+<img src="images/project5.png" class="w-full h-64 object-cover">
+
+<div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-center items-center text-center p-6">
+
+<h3 class="text-xl font-semibold mb-2">
+AI Flocking Experiment
+</h3>
+
+<p class="text-gray-300 text-sm">
+Autonomous agent simulation
+</p>
+
+</div>
+
 </a>
 
 </div>
 
+</section>
+
+<!-- PROJECT DETAILS -->
+
+<section class="max-w-5xl mx-auto py-24 space-y-32">
+
+<!-- PROJECT 1 -->
+
+<div id="project1">
+
+<h3 class="text-3xl font-bold mb-4">Black Hole Simulation</h3>
+
+<p class="text-gray-300">
+Simulation of gravitational attraction inspired by astrophysics.
+Objects orbit and accelerate around a central singularity.
+</p>
+
 </div>
+
+<!-- PROJECT 2 -->
+
+<div id="project2">
+
+<h3 class="text-3xl font-bold mb-4">Bird Gravity System</h3>
+
+<p class="text-gray-300">
+Particle flock influenced by a gravitational attractor, exploring
+emergent behaviors in dynamic systems.
+</p>
+
+</div>
+
+<!-- PROJECT 3 -->
+
+<div id="project3">
+
+<h3 class="text-3xl font-bold mb-4">Unity Platformer Prototype</h3>
+
+<p class="text-gray-300">
+Platformer mechanics prototype focusing on responsive controls,
+jump arcs and player feedback.
+</p>
+
+</div>
+
+<!-- PROJECT 4 -->
+
+<div id="project4">
+
+<h3 class="text-3xl font-bold mb-4">Procedural Terrain</h3>
+
+<p class="text-gray-300">
+Terrain generation experiment using noise functions to create
+natural landscapes dynamically.
+</p>
+
+</div>
+
+<!-- PROJECT 5 -->
+
+<div id="project5">
+
+<h3 class="text-3xl font-bold mb-4">AI Flocking Experiment</h3>
+
+<p class="text-gray-300">
+Autonomous agents using simple behavioral rules to simulate
+collective movement patterns.
+</p>
 
 </div>
 
 </section>
 
-<!-- SKILLS -->
-
-<section class="py-24 bg-slate-900/50 backdrop-blur">
-
-<h2 class="text-4xl text-center font-bold mb-12">
-Skills
-</h2>
-
-<div class="flex flex-wrap justify-center gap-4 text-lg">
-
-<span class="bg-slate-700 px-4 py-2 rounded">Unity</span>
-<span class="bg-slate-700 px-4 py-2 rounded">C#</span>
-<span class="bg-slate-700 px-4 py-2 rounded">JavaScript</span>
-<span class="bg-slate-700 px-4 py-2 rounded">p5.js</span>
-<span class="bg-slate-700 px-4 py-2 rounded">Game Physics</span>
-<span class="bg-slate-700 px-4 py-2 rounded">Procedural Systems</span>
-
-</div>
-
-</section>
+<!-- FOOTER -->
 
 <footer class="text-center py-12 text-gray-400">
 
 <p>© 2026 Thomas HC</p>
-
-<a href="https://github.com/tuusuario"
-class="text-blue-300 hover:text-blue-200">
-GitHub
-</a>
 
 </footer>
 
@@ -231,7 +304,7 @@ window.addEventListener("resize",resize)
 
 let time=0
 
-/* REALISTIC AURORA */
+/* AURORA */
 
 function drawAurora(){
 
@@ -323,8 +396,6 @@ f.x=Math.random()*snowCanvas.width
 })
 
 }
-
-/* LOOP */
 
 function animate(){
 
