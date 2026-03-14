@@ -1,1 +1,244 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Thomas HC | Game Developer</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+/* Fondo general */
+
+body{
+background: linear-gradient(to bottom,#0f172a,#020617);
+overflow-x:hidden;
+}
+
+/* Canvas nieve */
+
+#snowCanvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+</style>
+
+</head>
+
+<body class="text-gray-200 font-sans">
+
+<canvas id="snowCanvas"></canvas>
+
+<!-- HERO -->
+
+<section class="text-center py-32">
+
+<h1 class="text-6xl font-bold tracking-wide">
+Thomas HC
+</h1>
+
+<p class="mt-6 text-xl text-blue-200">
+Game Developer • Interactive Systems • Simulations
+</p>
+
+<p class="mt-4 text-gray-400 max-w-xl mx-auto">
+Developer focused on game mechanics, physics simulations
+and experimental interactive systems.
+</p>
+
+<a href="#projects"
+class="inline-block mt-8 bg-blue-400 hover:bg-blue-300 text-black px-6 py-3 rounded-lg transition">
+View Projects
+</a>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects" class="max-w-6xl mx-auto py-24">
+
+<h2 class="text-4xl font-bold text-center mb-16">
+Projects
+</h2>
+
+<div class="grid md:grid-cols-3 gap-10">
+
+<!-- PROJECT CARD -->
+
+<div class="bg-slate-800/70 backdrop-blur rounded-xl overflow-hidden shadow-lg hover:scale-105 transition">
+
+<img src="images/project1.png">
+
+<div class="p-6">
+
+<h3 class="text-xl font-semibold">
+Black Hole Simulation
+</h3>
+
+<p class="text-gray-400 mt-2">
+Gravitational simulation inspired by Nature of Code.
+</p>
+
+<a href="#" class="text-blue-300 mt-3 inline-block">
+View Project
+</a>
+
+</div>
+</div>
+
+<!-- PROJECT CARD -->
+
+<div class="bg-slate-800/70 backdrop-blur rounded-xl overflow-hidden shadow-lg hover:scale-105 transition">
+
+<img src="images/project2.png">
+
+<div class="p-6">
+
+<h3 class="text-xl font-semibold">
+Bird Gravity System
+</h3>
+
+<p class="text-gray-400 mt-2">
+Particle system with gravitational attractor.
+</p>
+
+<a href="#" class="text-blue-300 mt-3 inline-block">
+View Project
+</a>
+
+</div>
+</div>
+
+<!-- PROJECT CARD -->
+
+<div class="bg-slate-800/70 backdrop-blur rounded-xl overflow-hidden shadow-lg hover:scale-105 transition">
+
+<img src="images/project3.png">
+
+<div class="p-6">
+
+<h3 class="text-xl font-semibold">
+Unity Platformer Prototype
+</h3>
+
+<p class="text-gray-400 mt-2">
+Gameplay mechanics and movement systems.
+</p>
+
+<a href="#" class="text-blue-300 mt-3 inline-block">
+View Project
+</a>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section class="py-24 bg-slate-900/60 backdrop-blur">
+
+<h2 class="text-4xl text-center font-bold mb-12">
+Skills
+</h2>
+
+<div class="flex flex-wrap justify-center gap-4 text-lg">
+
+<span class="bg-slate-700 px-4 py-2 rounded">Unity</span>
+<span class="bg-slate-700 px-4 py-2 rounded">C#</span>
+<span class="bg-slate-700 px-4 py-2 rounded">JavaScript</span>
+<span class="bg-slate-700 px-4 py-2 rounded">p5.js</span>
+<span class="bg-slate-700 px-4 py-2 rounded">Game Physics</span>
+<span class="bg-slate-700 px-4 py-2 rounded">Procedural Systems</span>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="text-center py-10 text-gray-400">
+
+<p>© 2026 Thomas HC</p>
+
+<a href="https://github.com/tuusuario"
+class="text-blue-300">
+GitHub
+</a>
+
+</footer>
+
+<script>
+
+/* SNOW SYSTEM */
+
+const canvas = document.getElementById("snowCanvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let snowflakes = [];
+
+for(let i=0;i<150;i++){
+
+snowflakes.push({
+
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*3+1,
+speed:Math.random()*1+0.5
+
+});
+
+}
+
+function drawSnow(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="white";
+
+snowflakes.forEach(f=>{
+
+ctx.beginPath();
+ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
+ctx.fill();
+
+f.y+=f.speed;
+
+if(f.y>canvas.height){
+
+f.y=0;
+f.x=Math.random()*canvas.width;
+
+}
+
+});
+
+requestAnimationFrame(drawSnow);
+
+}
+
+drawSnow();
+
+window.addEventListener("resize",()=>{
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+});
+
+</script>
+
+</body>
+</html>
