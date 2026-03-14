@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Thomas HC | Game Developer</title>
+<title>Kuro | Game Developer</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 
@@ -19,13 +19,13 @@ font-family:sans-serif;
 scroll-behavior:smooth;
 }
 
-/* Canvas layers */
+/* CANVAS */
 
 #auroraCanvas{
 position:fixed;
 top:0;
 left:0;
-z-index:-2;
+z-index:-4;
 }
 
 #snowCanvas{
@@ -35,7 +35,35 @@ left:0;
 z-index:-1;
 }
 
-/* Steam style cards */
+/* PARALLAX MOUNTAINS */
+
+.mountain-layer{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+pointer-events:none;
+}
+
+.mountain-back{
+z-index:-3;
+opacity:.5;
+}
+
+.mountain-mid{
+z-index:-2;
+opacity:.7;
+}
+
+.mountain-front{
+z-index:-1;
+}
+
+/* PROJECT CARDS */
+
+.project-card{
+transition:transform .3s, box-shadow .3s;
+}
 
 .project-card img{
 transition:transform .5s;
@@ -43,6 +71,11 @@ transition:transform .5s;
 
 .project-card:hover img{
 transform:scale(1.1);
+}
+
+.project-card:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 30px rgba(0,255,200,0.15);
 }
 
 .project-overlay{
@@ -54,20 +87,84 @@ transition:opacity .3s;
 opacity:1;
 }
 
+/* GLASS CARDS */
+
+.glass-card{
+background:rgba(15,23,42,0.6);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:16px;
+padding:40px;
+}
+
 </style>
 
 </head>
 
 <body class="text-gray-200">
 
+<!-- BACKGROUND CANVAS -->
+
 <canvas id="auroraCanvas"></canvas>
 <canvas id="snowCanvas"></canvas>
+
+<!-- PARALLAX MOUNTAINS -->
+
+<svg class="mountain-layer mountain-back" viewBox="0 0 1440 320">
+<path fill="#0f172a" d="
+M0 260
+L120 220
+L260 260
+L420 180
+L600 260
+L760 200
+L900 260
+L1100 190
+L1260 260
+L1440 210
+L1440 320
+L0 320
+Z"></path>
+</svg>
+
+<svg class="mountain-layer mountain-mid" viewBox="0 0 1440 320">
+<path fill="#020617" d="
+M0 280
+L150 200
+L300 270
+L480 160
+L650 260
+L820 170
+L1000 260
+L1180 180
+L1350 260
+L1440 210
+L1440 320
+L0 320
+Z"></path>
+</svg>
+
+<svg class="mountain-layer mountain-front" viewBox="0 0 1440 320">
+<path fill="#01030a" d="
+M0 300
+L180 210
+L350 280
+L520 180
+L700 290
+L880 200
+L1060 300
+L1240 210
+L1440 280
+L1440 320
+L0 320
+Z"></path>
+</svg>
 
 <!-- HERO -->
 
 <section class="text-center py-32">
 
-<h1 class="text-6xl font-bold text-blue-200 drop-shadow-lg">
+<h1 class="text-6xl font-bold text-blue-200 drop-shadow-lg tracking-wide">
 Kuro
 </h1>
 
@@ -75,14 +172,29 @@ Kuro
 Game Developer • Interactive Systems • Designer
 </p>
 
-<p class="mt-4 text-gray-400 max-w-xl mx-auto">
-Developer focused on game mechanics, Design, and experimental interactive systems.
+<p class="mt-3 text-gray-400">
+Gameplay Programming • Systems Design • Interactive Experiments
 </p>
 
 <a href="#projects"
 class="inline-block mt-10 bg-blue-400 hover:bg-blue-300 text-black px-6 py-3 rounded-lg transition">
 View Projects
 </a>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="max-w-3xl mx-auto text-center py-20">
+
+<h2 class="text-3xl font-bold mb-6">
+About Me
+</h2>
+
+<p class="text-gray-400">
+Game developer focused on gameplay mechanics, simulation systems and interactive experiences.
+I enjoy exploring emergent behavior and procedural design.
+</p>
 
 </section>
 
@@ -94,106 +206,46 @@ View Projects
 Featured Projects
 </h2>
 
-<div class="grid md:grid-cols-3 gap-10">
-
-<!-- CARD 1 -->
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
 <a href="#project1" class="project-card relative rounded-xl overflow-hidden shadow-xl">
-
 <img src="Gallery/GGJ2026.jpg" class="w-full h-64 object-cover">
-
 <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-center items-center text-center p-6">
-
-<h3 class="text-xl font-semibold mb-2">
-MasKeeper
-</h3>
-
-<p class="text-gray-300 text-sm">
-Videogame Made For GGJ-2026
-</p>
-
+<h3 class="text-xl font-semibold mb-2">MasKeeper</h3>
+<p class="text-gray-300 text-sm">Videogame Made For GGJ-2026</p>
 </div>
-
 </a>
-
-<!-- CARD 2 -->
 
 <a href="#project2" class="project-card relative rounded-xl overflow-hidden shadow-xl">
-
 <img src="Gallery/Sprinto.jpg" class="w-full h-64 object-cover">
-
 <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-center items-center text-center p-6">
-
-<h3 class="text-xl font-semibold mb-2">
-Sprinto
-</h3>
-
-<p class="text-gray-300 text-sm">
-Platformer/Meme Videogame 
-</p>
-
+<h3 class="text-xl font-semibold mb-2">Sprinto</h3>
+<p class="text-gray-300 text-sm">Platformer/Meme Videogame</p>
 </div>
-
 </a>
-
-<!-- CARD 3 -->
 
 <a href="#project3" class="project-card relative rounded-xl overflow-hidden shadow-xl">
-
 <img src="Gallery/Alta.jpg" class="w-full h-64 object-cover">
-
 <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-center items-center text-center p-6">
-
-<h3 class="text-xl font-semibold mb-2">
-Alta
-</h3>
-
-<p class="text-gray-300 text-sm">
-Design Of An AppCenter To Relax
-</p>
-
+<h3 class="text-xl font-semibold mb-2">Alta</h3>
+<p class="text-gray-300 text-sm">Relax AppCenter</p>
 </div>
-
 </a>
-
-<!-- CARD 4 -->
 
 <a href="#project4" class="project-card relative rounded-xl overflow-hidden shadow-xl">
-
 <img src="Gallery/Simulacion.jpg" class="w-full h-64 object-cover">
-
 <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-center items-center text-center p-6">
-
-<h3 class="text-xl font-semibold mb-2">
-Simulations
-</h3>
-
-<p class="text-gray-300 text-sm">
-Various Simulations Made In P5.JS
-</p>
-
+<h3 class="text-xl font-semibold mb-2">Simulations</h3>
+<p class="text-gray-300 text-sm">Nature Of Code Experiments</p>
 </div>
-
 </a>
 
-<!-- CARD 5 -->
-
 <a href="#project5" class="project-card relative rounded-xl overflow-hidden shadow-xl">
-
 <img src="Gallery/VFX.jpg" class="w-full h-64 object-cover">
-
 <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-center items-center text-center p-6">
-
-<h3 class="text-xl font-semibold mb-2">
-VFX & Shaders
-</h3>
-
-<p class="text-gray-300 text-sm">
-Various VFX Small Projects
-</p>
-
+<h3 class="text-xl font-semibold mb-2">VFX & Shaders</h3>
+<p class="text-gray-300 text-sm">Unity VFX Experiments</p>
 </div>
-
 </a>
 
 </div>
@@ -204,77 +256,64 @@ Various VFX Small Projects
 
 <section class="max-w-5xl mx-auto py-24 space-y-32">
 
-<!-- PROJECT 1 -->
-
-<div id="project1">
-
+<div id="project1" class="glass-card">
 <h3 class="text-3xl font-bold mb-4">MasKeeper</h3>
-
-<p class="text-gray-300">
-VideoGame winner of Global Game Jam 2026.  
-</p>
-
+<p class="text-gray-300 mb-6">Videogame winner of Global Game Jam 2026.</p>
+<div class="flex gap-4">
+<a href="#" class="bg-blue-400 hover:bg-blue-300 text-black px-4 py-2 rounded">Github</a>
+<a href="#" class="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded">Play Demo</a>
+</div>
 </div>
 
-<!-- PROJECT 2 -->
-
-<div id="project2">
-
+<div id="project2" class="glass-card">
 <h3 class="text-3xl font-bold mb-4">Sprinto</h3>
-
-<p class="text-gray-300">
-Small but fun VideoGame, made with 2 friends for a university project.
-</p>
-
+<p class="text-gray-300 mb-6">Small experimental platformer.</p>
 </div>
 
-<!-- PROJECT 3 -->
-
-<div id="project3">
-
+<div id="project3" class="glass-card">
 <h3 class="text-3xl font-bold mb-4">Alta</h3>
-
-<p class="text-gray-300">
-Design of an AppCenter, focused in relaxation and auditive enjoyment.
-</p>
-
+<p class="text-gray-300 mb-6">Relaxation focused app center concept.</p>
 </div>
 
-<!-- PROJECT 4 -->
-
-<div id="project4">
-
+<div id="project4" class="glass-card">
 <h3 class="text-3xl font-bold mb-4">Simulations</h3>
-
-<p class="text-gray-300">
-Collection of various simulations made in P5.JS, exploring various concepts from "The Nature Of Code", By Daniel Shiffman.
-</p>
-
+<p class="text-gray-300 mb-6">Physics and behavior simulations with p5.js.</p>
 </div>
 
-<!-- PROJECT 5 -->
-
-<div id="project5">
-
+<div id="project5" class="glass-card">
 <h3 class="text-3xl font-bold mb-4">VFX & Shaders</h3>
-
-<p class="text-gray-300">
-Collection of various small projects made in unity, exploring particle systems, and shadergraphs, to make VFX and shaders for VideoGames. 
-</p>
-
+<p class="text-gray-300 mb-6">Shader and particle experiments.</p>
 </div>
 
 </section>
-
-<!-- FOOTER -->
 
 <footer class="text-center py-12 text-gray-400">
 
 <p>© 2026 Thomas HC</p>
 
+<a href="#" class="text-blue-300 hover:text-blue-200 block mt-3">
+Back to top
+</a>
+
 </footer>
 
 <script>
+
+/* PARALLAX */
+
+const back=document.querySelector(".mountain-back")
+const mid=document.querySelector(".mountain-mid")
+const front=document.querySelector(".mountain-front")
+
+window.addEventListener("scroll",()=>{
+
+let scroll=window.scrollY
+
+back.style.transform=`translateY(${scroll*0.1}px)`
+mid.style.transform=`translateY(${scroll*0.2}px)`
+front.style.transform=`translateY(${scroll*0.35}px)`
+
+})
 
 /* CANVAS SETUP */
 
@@ -345,7 +384,7 @@ auroraCtx.fill()
 
 }
 
-time+=0.002
+time+=0.0015
 
 }
 
@@ -356,12 +395,10 @@ let snowflakes=[]
 for(let i=0;i<180;i++){
 
 snowflakes.push({
-
 x:Math.random()*window.innerWidth,
 y:Math.random()*window.innerHeight,
 r:Math.random()*3+1,
 speed:Math.random()*1+0.5
-
 })
 
 }
