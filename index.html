@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -12,14 +12,20 @@
 
 <style>
 
-/* Fondo general */
-
 body{
-background: linear-gradient(to bottom,#0f172a,#020617);
+background:linear-gradient(to bottom,#020617,#020617);
 overflow-x:hidden;
+font-family:sans-serif;
 }
 
-/* Canvas nieve */
+/* canvas layers */
+
+#auroraCanvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-2;
+}
 
 #snowCanvas{
 position:fixed;
@@ -28,33 +34,53 @@ left:0;
 z-index:-1;
 }
 
+/* Steam style hover */
+
+.project-card img{
+transition:transform .5s;
+}
+
+.project-card:hover img{
+transform:scale(1.1);
+}
+
+.project-overlay{
+opacity:0;
+transition:opacity .3s;
+}
+
+.project-card:hover .project-overlay{
+opacity:1;
+}
+
 </style>
 
 </head>
 
-<body class="text-gray-200 font-sans">
+<body class="text-gray-200">
 
+<canvas id="auroraCanvas"></canvas>
 <canvas id="snowCanvas"></canvas>
 
 <!-- HERO -->
 
 <section class="text-center py-32">
 
-<h1 class="text-6xl font-bold tracking-wide">
+<h1 class="text-6xl font-bold text-blue-200 drop-shadow-lg">
 Thomas HC
 </h1>
 
-<p class="mt-6 text-xl text-blue-200">
-Game Developer • Interactive Systems • Simulations
+<p class="mt-6 text-xl text-blue-300">
+Game Developer • Interactive Systems
 </p>
 
 <p class="mt-4 text-gray-400 max-w-xl mx-auto">
-Developer focused on game mechanics, physics simulations
+Developer focused on game mechanics, physics simulations,
 and experimental interactive systems.
 </p>
 
 <a href="#projects"
-class="inline-block mt-8 bg-blue-400 hover:bg-blue-300 text-black px-6 py-3 rounded-lg transition">
+class="inline-block mt-10 bg-blue-400 hover:bg-blue-300 text-black px-6 py-3 rounded-lg transition">
 View Projects
 </a>
 
@@ -65,78 +91,84 @@ View Projects
 <section id="projects" class="max-w-6xl mx-auto py-24">
 
 <h2 class="text-4xl font-bold text-center mb-16">
-Projects
+Featured Projects
 </h2>
 
 <div class="grid md:grid-cols-3 gap-10">
 
-<!-- PROJECT CARD -->
+<!-- PROJECT -->
 
-<div class="bg-slate-800/70 backdrop-blur rounded-xl overflow-hidden shadow-lg hover:scale-105 transition">
+<div class="project-card relative rounded-xl overflow-hidden shadow-xl">
 
-<img src="images/project1.png">
+<img src="images/project1.png" class="w-full h-64 object-cover">
 
-<div class="p-6">
+<div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-center items-center text-center p-6">
 
-<h3 class="text-xl font-semibold">
+<h3 class="text-xl font-semibold mb-2">
 Black Hole Simulation
 </h3>
 
-<p class="text-gray-400 mt-2">
-Gravitational simulation inspired by Nature of Code.
+<p class="text-gray-300 text-sm">
+Physics simulation inspired by gravitational systems.
 </p>
 
-<a href="#" class="text-blue-300 mt-3 inline-block">
+<a href="#"
+class="mt-4 bg-blue-400 text-black px-4 py-2 rounded hover:bg-blue-300">
 View Project
 </a>
 
 </div>
+
 </div>
 
-<!-- PROJECT CARD -->
+<!-- PROJECT -->
 
-<div class="bg-slate-800/70 backdrop-blur rounded-xl overflow-hidden shadow-lg hover:scale-105 transition">
+<div class="project-card relative rounded-xl overflow-hidden shadow-xl">
 
-<img src="images/project2.png">
+<img src="images/project2.png" class="w-full h-64 object-cover">
 
-<div class="p-6">
+<div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-center items-center text-center p-6">
 
-<h3 class="text-xl font-semibold">
+<h3 class="text-xl font-semibold mb-2">
 Bird Gravity System
 </h3>
 
-<p class="text-gray-400 mt-2">
-Particle system with gravitational attractor.
+<p class="text-gray-300 text-sm">
+Particle flock influenced by gravitational forces.
 </p>
 
-<a href="#" class="text-blue-300 mt-3 inline-block">
+<a href="#"
+class="mt-4 bg-blue-400 text-black px-4 py-2 rounded hover:bg-blue-300">
 View Project
 </a>
 
 </div>
+
 </div>
 
-<!-- PROJECT CARD -->
+<!-- PROJECT -->
 
-<div class="bg-slate-800/70 backdrop-blur rounded-xl overflow-hidden shadow-lg hover:scale-105 transition">
+<div class="project-card relative rounded-xl overflow-hidden shadow-xl">
 
-<img src="images/project3.png">
+<img src="images/project3.png" class="w-full h-64 object-cover">
 
-<div class="p-6">
+<div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-center items-center text-center p-6">
 
-<h3 class="text-xl font-semibold">
+<h3 class="text-xl font-semibold mb-2">
 Unity Platformer Prototype
 </h3>
 
-<p class="text-gray-400 mt-2">
-Gameplay mechanics and movement systems.
+<p class="text-gray-300 text-sm">
+Gameplay mechanics and movement experiments.
 </p>
 
-<a href="#" class="text-blue-300 mt-3 inline-block">
+<a href="#"
+class="mt-4 bg-blue-400 text-black px-4 py-2 rounded hover:bg-blue-300">
 View Project
 </a>
 
 </div>
+
 </div>
 
 </div>
@@ -145,7 +177,7 @@ View Project
 
 <!-- SKILLS -->
 
-<section class="py-24 bg-slate-900/60 backdrop-blur">
+<section class="py-24 bg-slate-900/50 backdrop-blur">
 
 <h2 class="text-4xl text-center font-bold mb-12">
 Skills
@@ -166,12 +198,12 @@ Skills
 
 <!-- FOOTER -->
 
-<footer class="text-center py-10 text-gray-400">
+<footer class="text-center py-12 text-gray-400">
 
 <p>© 2026 Thomas HC</p>
 
 <a href="https://github.com/tuusuario"
-class="text-blue-300">
+class="text-blue-300 hover:text-blue-200">
 GitHub
 </a>
 
@@ -179,64 +211,133 @@ GitHub
 
 <script>
 
-/* SNOW SYSTEM */
+/* CANVAS SETUP */
 
-const canvas = document.getElementById("snowCanvas");
-const ctx = canvas.getContext("2d");
+const auroraCanvas=document.getElementById("auroraCanvas")
+const snowCanvas=document.getElementById("snowCanvas")
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+const auroraCtx=auroraCanvas.getContext("2d")
+const snowCtx=snowCanvas.getContext("2d")
 
-let snowflakes = [];
+function resize(){
+
+auroraCanvas.width=window.innerWidth
+auroraCanvas.height=window.innerHeight
+
+snowCanvas.width=window.innerWidth
+snowCanvas.height=window.innerHeight
+
+}
+
+resize()
+
+window.addEventListener("resize",resize)
+
+let time=0
+
+/* AURORA */
+
+function drawAurora(){
+
+auroraCtx.clearRect(0,0,auroraCanvas.width,auroraCanvas.height)
+
+for(let i=0;i<5;i++){
+
+let gradient=auroraCtx.createLinearGradient(
+0,
+200+i*100+Math.sin(time+i)*50,
+auroraCanvas.width,
+400+i*100
+)
+
+gradient.addColorStop(0,"rgba(0,255,180,0.05)")
+gradient.addColorStop(0.5,"rgba(0,200,255,0.08)")
+gradient.addColorStop(1,"rgba(180,0,255,0.05)")
+
+auroraCtx.fillStyle=gradient
+
+auroraCtx.beginPath()
+
+auroraCtx.moveTo(0,300+i*80)
+
+for(let x=0;x<auroraCanvas.width;x+=50){
+
+let y=
+300+
+Math.sin(x*0.01+time+i)*60+
+i*80
+
+auroraCtx.lineTo(x,y)
+
+}
+
+auroraCtx.lineTo(auroraCanvas.width,auroraCanvas.height)
+auroraCtx.lineTo(0,auroraCanvas.height)
+auroraCtx.closePath()
+
+auroraCtx.fill()
+
+}
+
+time+=0.003
+
+}
+
+/* SNOW */
+
+let snowflakes=[]
 
 for(let i=0;i<150;i++){
 
 snowflakes.push({
 
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
+x:Math.random()*window.innerWidth,
+y:Math.random()*window.innerHeight,
 r:Math.random()*3+1,
 speed:Math.random()*1+0.5
 
-});
+})
 
 }
 
 function drawSnow(){
 
-ctx.clearRect(0,0,canvas.width,canvas.height);
+snowCtx.clearRect(0,0,snowCanvas.width,snowCanvas.height)
 
-ctx.fillStyle="white";
+snowCtx.fillStyle="white"
 
 snowflakes.forEach(f=>{
 
-ctx.beginPath();
-ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
-ctx.fill();
+snowCtx.beginPath()
+snowCtx.arc(f.x,f.y,f.r,0,Math.PI*2)
+snowCtx.fill()
 
-f.y+=f.speed;
+f.y+=f.speed
+f.x+=Math.sin(time*2+f.y*0.01)*0.3
 
-if(f.y>canvas.height){
+if(f.y>snowCanvas.height){
 
-f.y=0;
-f.x=Math.random()*canvas.width;
-
-}
-
-});
-
-requestAnimationFrame(drawSnow);
+f.y=0
+f.x=Math.random()*snowCanvas.width
 
 }
 
-drawSnow();
+})
 
-window.addEventListener("resize",()=>{
+}
 
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
+/* LOOP */
 
-});
+function animate(){
+
+drawAurora()
+drawSnow()
+
+requestAnimationFrame(animate)
+
+}
+
+animate()
 
 </script>
 
