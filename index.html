@@ -45,19 +45,9 @@ width:100%;
 pointer-events:none;
 }
 
-.mountain-back{
-z-index:-3;
-opacity:.5;
-}
-
-.mountain-mid{
-z-index:-2;
-opacity:.7;
-}
-
-.mountain-front{
-z-index:-1;
-}
+.mountain-back{z-index:-3;opacity:.5;}
+.mountain-mid{z-index:-2;opacity:.7;}
+.mountain-front{z-index:-1;}
 
 /* PROJECT CARDS */
 
@@ -103,61 +93,21 @@ padding:40px;
 
 <body class="text-gray-200">
 
-<!-- BACKGROUND CANVAS -->
-
 <canvas id="auroraCanvas"></canvas>
 <canvas id="snowCanvas"></canvas>
 
-<!-- PARALLAX MOUNTAINS -->
+<!-- MOUNTAINS -->
 
 <svg class="mountain-layer mountain-back" viewBox="0 0 1440 320">
-<path fill="#0f172a" d="
-M0 260
-L120 220
-L260 260
-L420 180
-L600 260
-L760 200
-L900 260
-L1100 190
-L1260 260
-L1440 210
-L1440 320
-L0 320
-Z"></path>
+<path fill="#0f172a" d="M0 260 L120 220 L260 260 L420 180 L600 260 L760 200 L900 260 L1100 190 L1260 260 L1440 210 L1440 320 L0 320 Z"></path>
 </svg>
 
 <svg class="mountain-layer mountain-mid" viewBox="0 0 1440 320">
-<path fill="#020617" d="
-M0 280
-L150 200
-L300 270
-L480 160
-L650 260
-L820 170
-L1000 260
-L1180 180
-L1350 260
-L1440 210
-L1440 320
-L0 320
-Z"></path>
+<path fill="#020617" d="M0 280 L150 200 L300 270 L480 160 L650 260 L820 170 L1000 260 L1180 180 L1350 260 L1440 210 L1440 320 L0 320 Z"></path>
 </svg>
 
 <svg class="mountain-layer mountain-front" viewBox="0 0 1440 320">
-<path fill="#01030a" d="
-M0 300
-L180 210
-L350 280
-L520 180
-L700 290
-L880 200
-L1060 300
-L1240 210
-L1440 280
-L1440 320
-L0 320
-Z"></path>
+<path fill="#01030a" d="M0 300 L180 210 L350 280 L520 180 L700 290 L880 200 L1060 300 L1240 210 L1440 280 L1440 320 L0 320 Z"></path>
 </svg>
 
 <!-- HERO -->
@@ -169,7 +119,7 @@ Kuro
 </h1>
 
 <p class="mt-6 text-xl text-blue-300">
-Game Developer • Interactive Systems • Designer
+Game Developer • Designer • Artist
 </p>
 
 <p class="mt-3 text-gray-400">
@@ -192,8 +142,10 @@ About Me
 </h2>
 
 <p class="text-gray-400">
-Game developer focused on gameplay mechanics, simulation systems and interactive experiences.
-I enjoy exploring emergent behavior and procedural design.
+Greetings! I'm Thomas, a VideoGame developer and enthusiast.
+I find fascinating everything about the process of making VideoGames, and i also enjoy playing them, offcourse!.
+Currently i'm a student of Digital Entertainment Design Engineering at UPB in Colombia.
+As you can see in this portfolio, im also in love with the snow and winter
 </p>
 
 </section>
@@ -228,7 +180,7 @@ Featured Projects
 <img src="Gallery/Alta.jpg" class="w-full h-64 object-cover">
 <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-center items-center text-center p-6">
 <h3 class="text-xl font-semibold mb-2">Alta</h3>
-<p class="text-gray-300 text-sm">Relax AppCenter</p>
+<p class="text-gray-300 text-sm">Relaxing AppCenter For Use In Automobiles</p>
 </div>
 </a>
 
@@ -236,7 +188,7 @@ Featured Projects
 <img src="Gallery/Simulacion.jpg" class="w-full h-64 object-cover">
 <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-center items-center text-center p-6">
 <h3 class="text-xl font-semibold mb-2">Simulations</h3>
-<p class="text-gray-300 text-sm">Nature Of Code Experiments</p>
+<p class="text-gray-300 text-sm">Narrative Experiments Based In The Nature Of Code</p>
 </div>
 </a>
 
@@ -258,31 +210,86 @@ Featured Projects
 
 <div id="project1" class="glass-card">
 <h3 class="text-3xl font-bold mb-4">MasKeeper</h3>
-<p class="text-gray-300 mb-6">Videogame winner of Global Game Jam 2026.</p>
-<div class="flex gap-4">
-<a href="#" class="bg-blue-400 hover:bg-blue-300 text-black px-4 py-2 rounded">Github</a>
-<a href="#" class="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded">Play Demo</a>
+<p class="text-gray-300 mb-6">Videogame made with friends, that is one of the winner projects of Global Game Jam 2026.</p>
+<div class="flex gap-4 flex-wrap">
+<a href="https://github.com/JuanSMarin2/Proyecto_GameJam2026" class="bg-blue-400 hover:bg-blue-300 text-black px-4 py-2 rounded">Repository</a>
+<a href="https://jsm269.itch.io/maskeeper" class="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded">Play Online!</a>
 </div>
 </div>
 
 <div id="project2" class="glass-card">
 <h3 class="text-3xl font-bold mb-4">Sprinto</h3>
-<p class="text-gray-300 mb-6">Small experimental platformer.</p>
+<p class="text-gray-300 mb-6">Small Videogame with 3 leves and a boss fight, made with a pair of friends for an university assignement. Has a very "Meme" humour, and design.</p>
+<div class="flex gap-4 flex-wrap">
+<a href="https://github.com/ThomasHyCr/scripting2025" class="bg-blue-400 hover:bg-blue-300 text-black px-4 py-2 rounded">Repository</a>
+<a href="https://www.canva.com/design/DAGfCP2GTj0/U8myy58cBJn-UN1Wj_B93A/edit?utm_content=DAGfCP2GTj0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" class="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded">Presentation</a>
+</div>
 </div>
 
 <div id="project3" class="glass-card">
 <h3 class="text-3xl font-bold mb-4">Alta</h3>
-<p class="text-gray-300 mb-6">Relaxation focused app center concept.</p>
+<p class="text-gray-300 mb-6">Relaxation focused AppCenter design project for use in automobiles.</p>
+<div class="flex gap-4 flex-wrap">
+<a href="https://www.canva.com/design/DAGoxUyjOP0/5KnvlxQ6XQEshdS_2t2qMw/edit?utm_content=DAGoxUyjOP0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" class="bg-blue-400 hover:bg-blue-300 text-black px-4 py-2 rounded">View Project</a>
+</div>
 </div>
 
 <div id="project4" class="glass-card">
 <h3 class="text-3xl font-bold mb-4">Simulations</h3>
-<p class="text-gray-300 mb-6">Physics and behavior simulations with p5.js.</p>
+<p class="text-gray-300 mb-6">Various simulations made using p5.js. Each work has an implicit narrative</p>
+<div class="flex gap-4 flex-wrap">
+<a href="https://editor.p5js.org/ThomasHyCr/sketches/MiOfTFzKC" class="bg-blue-400 hover:bg-blue-300 text-black px-4 py-2 rounded">Tempus Fugit</a>
+<a href="https://editor.p5js.org/ThomasHyCr/sketches/reOL8vR9h" class="bg-blue-400 hover:bg-blue-300 text-black px-4 py-2 rounded">Rain At Sea</a>
+<a href="https://editor.p5js.org/ThomasHyCr/sketches/qDTYRA_Vt" class="bg-blue-400 hover:bg-blue-300 text-black px-4 py-2 rounded">Climate Planes</a>
+<a href="https://editor.p5js.org/ThomasHyCr/sketches/cp5th1pa-" class="bg-blue-400 hover:bg-blue-300 text-black px-4 py-2 rounded">Amoeba Sim</a>
+</div>
 </div>
 
 <div id="project5" class="glass-card">
 <h3 class="text-3xl font-bold mb-4">VFX & Shaders</h3>
-<p class="text-gray-300 mb-6">Shader and particle experiments.</p>
+<p class="text-gray-300 mb-6">Various Unity VFX experiments.</p>
+<div class="flex gap-4 flex-wrap">
+<a href="https://www.youtube.com/watch?v=w86HKbvUBQM" class="bg-blue-400 hover:bg-blue-300 text-black px-4 py-2 rounded">Water Shader</a>
+<a href="https://www.youtube.com/watch?v=Y4AgT-_kT5U" class="bg-blue-400 hover:bg-blue-300 text-black px-4 py-2 rounded">Various VFX</a>
+<a href="https://www.youtube.com/watch?v=VTO-lB86WCM" class="bg-blue-400 hover:bg-blue-300 text-black px-4 py-2 rounded">Attack VFX</a>
+</div>
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="max-w-3xl mx-auto py-24">
+
+<div class="glass-card text-center">
+
+<h2 class="text-3xl font-bold mb-6">
+Contact
+</h2>
+
+<p class="text-gray-400 mb-8">
+Contact Info:
+</p>
+
+<div class="flex justify-center gap-6 flex-wrap">
+
+<a href="mailto:thomhoycar@gmail.com"
+class="bg-blue-400 hover:bg-blue-300 text-black px-6 py-3 rounded-lg">
+Email
+</a>
+
+<a href="https://github.com/ThomasHyCr"
+class="bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-lg">
+Github
+</a>
+
+<a href="https://www.linkedin.com/in/thomas-hc-62a2383a8/"
+class="bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-lg">
+LinkedIn
+</a>
+
+</div>
+
 </div>
 
 </section>
@@ -348,12 +355,7 @@ for(let layer=0;layer<7;layer++){
 
 let baseHeight=200+layer*70
 
-let gradient=auroraCtx.createLinearGradient(
-0,
-baseHeight,
-0,
-baseHeight+300
-)
+let gradient=auroraCtx.createLinearGradient(0,baseHeight,0,baseHeight+300)
 
 gradient.addColorStop(0,"rgba(0,255,180,0.05)")
 gradient.addColorStop(0.3,"rgba(0,255,120,0.08)")
@@ -367,8 +369,7 @@ auroraCtx.moveTo(0,baseHeight)
 
 for(let x=0;x<auroraCanvas.width;x+=20){
 
-let y=
-baseHeight+
+let y=baseHeight+
 Math.sin(x*0.002+time+layer)*80+
 Math.sin(x*0.01+time*2)*20
 
