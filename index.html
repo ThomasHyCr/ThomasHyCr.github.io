@@ -13,12 +13,12 @@
 <style>
 
 body{
-background:linear-gradient(to bottom,#020617,#020617);
+background:#020617;
 overflow-x:hidden;
 font-family:sans-serif;
 }
 
-/* canvas layers */
+/* Canvas layers */
 
 #auroraCanvas{
 position:fixed;
@@ -34,7 +34,7 @@ left:0;
 z-index:-1;
 }
 
-/* Steam style hover */
+/* Steam-style cards */
 
 .project-card img{
 transition:transform .5s;
@@ -75,8 +75,7 @@ Game Developer • Interactive Systems
 </p>
 
 <p class="mt-4 text-gray-400 max-w-xl mx-auto">
-Developer focused on game mechanics, physics simulations,
-and experimental interactive systems.
+Developer focused on game mechanics, physics simulations and experimental interactive systems.
 </p>
 
 <a href="#projects"
@@ -96,7 +95,7 @@ Featured Projects
 
 <div class="grid md:grid-cols-3 gap-10">
 
-<!-- PROJECT -->
+<!-- PROJECT CARD -->
 
 <div class="project-card relative rounded-xl overflow-hidden shadow-xl">
 
@@ -105,11 +104,11 @@ Featured Projects
 <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-center items-center text-center p-6">
 
 <h3 class="text-xl font-semibold mb-2">
-Black Hole Simulation
+MasKeeper
 </h3>
 
 <p class="text-gray-300 text-sm">
-Physics simulation inspired by gravitational systems.
+Project made in 48 hours for GGJ2026
 </p>
 
 <a href="#"
@@ -121,7 +120,7 @@ View Project
 
 </div>
 
-<!-- PROJECT -->
+<!-- PROJECT CARD -->
 
 <div class="project-card relative rounded-xl overflow-hidden shadow-xl">
 
@@ -146,7 +145,7 @@ View Project
 
 </div>
 
-<!-- PROJECT -->
+<!-- PROJECT CARD -->
 
 <div class="project-card relative rounded-xl overflow-hidden shadow-xl">
 
@@ -196,8 +195,6 @@ Skills
 
 </section>
 
-<!-- FOOTER -->
-
 <footer class="text-center py-12 text-gray-400">
 
 <p>© 2026 Thomas HC</p>
@@ -230,42 +227,43 @@ snowCanvas.height=window.innerHeight
 }
 
 resize()
-
 window.addEventListener("resize",resize)
 
 let time=0
 
-/* AURORA */
+/* REALISTIC AURORA */
 
 function drawAurora(){
 
 auroraCtx.clearRect(0,0,auroraCanvas.width,auroraCanvas.height)
 
-for(let i=0;i<5;i++){
+for(let layer=0;layer<7;layer++){
+
+let baseHeight=200+layer*70
 
 let gradient=auroraCtx.createLinearGradient(
 0,
-200+i*100+Math.sin(time+i)*50,
-auroraCanvas.width,
-400+i*100
+baseHeight,
+0,
+baseHeight+300
 )
 
 gradient.addColorStop(0,"rgba(0,255,180,0.05)")
-gradient.addColorStop(0.5,"rgba(0,200,255,0.08)")
-gradient.addColorStop(1,"rgba(180,0,255,0.05)")
+gradient.addColorStop(0.3,"rgba(0,255,120,0.08)")
+gradient.addColorStop(0.6,"rgba(0,150,255,0.06)")
+gradient.addColorStop(1,"rgba(180,0,255,0.04)")
 
 auroraCtx.fillStyle=gradient
 
 auroraCtx.beginPath()
+auroraCtx.moveTo(0,baseHeight)
 
-auroraCtx.moveTo(0,300+i*80)
-
-for(let x=0;x<auroraCanvas.width;x+=50){
+for(let x=0;x<auroraCanvas.width;x+=20){
 
 let y=
-300+
-Math.sin(x*0.01+time+i)*60+
-i*80
+baseHeight+
+Math.sin(x*0.002+time+layer)*80+
+Math.sin(x*0.01+time*2)*20
 
 auroraCtx.lineTo(x,y)
 
@@ -279,7 +277,7 @@ auroraCtx.fill()
 
 }
 
-time+=0.003
+time+=0.002
 
 }
 
@@ -287,7 +285,7 @@ time+=0.003
 
 let snowflakes=[]
 
-for(let i=0;i<150;i++){
+for(let i=0;i<180;i++){
 
 snowflakes.push({
 
@@ -313,7 +311,7 @@ snowCtx.arc(f.x,f.y,f.r,0,Math.PI*2)
 snowCtx.fill()
 
 f.y+=f.speed
-f.x+=Math.sin(time*2+f.y*0.01)*0.3
+f.x+=Math.sin(time*3+f.y*0.01)*0.4
 
 if(f.y>snowCanvas.height){
 
