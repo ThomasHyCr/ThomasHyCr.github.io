@@ -32,7 +32,7 @@ z-index:-4;
 position:fixed;
 top:0;
 left:0;
-z-index:-1;
+z-index:-2;
 }
 
 /* PARALLAX MOUNTAINS */
@@ -369,5 +369,144 @@ Back to top
 
 </footer>
 
+<script>
+
+/* PARALLAX */
+
+const back=document.querySelector(".mountain-back")
+const mid=document.querySelector(".mountain-mid")
+const front=document.querySelector(".mountain-front")
+
+window.addEventListener("scroll",()=>{
+
+let scroll=window.scrollY
+
+back.style.transform=`translateY(${scroll*0.1}px)`
+mid.style.transform=`translateY(${scroll*0.2}px)`
+front.style.transform=`translateY(${scroll*0.35}px)`
+
+})
+
+/* CANVAS SETUP */
+
+const auroraCanvas=document.getElementById("auroraCanvas")
+const snowCanvas=document.getElementById("snowCanvas")
+
+const auroraCtx=auroraCanvas.getContext("2d")
+const snowCtx=snowCanvas.getContext("2d")
+
+function resize(){
+
+auroraCanvas.width=window.innerWidth
+auroraCanvas.height=window.innerHeight
+
+snowCanvas.width=window.innerWidth
+snowCanvas.height=window.innerHeight
+
+}
+
+resize()
+window.addEventListener("resize",resize)
+
+let time=0
+
+/* AURORA */
+
+function drawAurora(){
+
+auroraCtx.clearRect(0,0,auroraCanvas.width,auroraCanvas.height)
+
+for(let layer=0;layer<7;layer++){
+
+let baseHeight=200+layer*70
+
+let gradient=auroraCtx.createLinearGradient(0,baseHeight,0,baseHeight+300)
+
+gradient.addColorStop(0,"rgba(0,255,180,0.05)")
+gradient.addColorStop(0.3,"rgba(0,255,120,0.08)")
+gradient.addColorStop(0.6,"rgba(0,150,255,0.06)")
+gradient.addColorStop(1,"rgba(180,0,255,0.04)")
+
+auroraCtx.fillStyle=gradient
+
+auroraCtx.beginPath()
+auroraCtx.moveTo(0,baseHeight)
+
+for(let x=0;x<auroraCanvas.width;x+=20){
+
+let y=baseHeight+
+Math.sin(x*0.002+time+layer)*80+
+Math.sin(x*0.01+time*2)*20
+
+auroraCtx.lineTo(x,y)
+
+}
+
+auroraCtx.lineTo(auroraCanvas.width,auroraCanvas.height)
+auroraCtx.lineTo(0,auroraCanvas.height)
+auroraCtx.closePath()
+
+auroraCtx.fill()
+
+}
+
+time+=0.0015
+
+}
+
+/* SNOW */
+
+let snowflakes=[]
+
+for(let i=0;i<180;i++){
+
+snowflakes.push({
+x:Math.random()*window.innerWidth,
+y:Math.random()*window.innerHeight,
+r:Math.random()*3+1,
+speed:Math.random()*1+0.5
+})
+
+}
+
+function drawSnow(){
+
+snowCtx.clearRect(0,0,snowCanvas.width,snowCanvas.height)
+
+snowCtx.fillStyle="white"
+
+snowflakes.forEach(f=>{
+
+snowCtx.beginPath()
+snowCtx.arc(f.x,f.y,f.r,0,Math.PI*2)
+snowCtx.fill()
+
+f.y+=f.speed
+f.x+=Math.sin(time*3+f.y*0.01)*0.4
+
+if(f.y>snowCanvas.height){
+
+f.y=0
+f.x=Math.random()*snowCanvas.width
+
+}
+
+})
+
+}
+
+function animate(){
+
+drawAurora()
+drawSnow()
+
+requestAnimationFrame(animate)
+
+}
+
+animate()
+
+</script>
+  
 </body>
 </html>
